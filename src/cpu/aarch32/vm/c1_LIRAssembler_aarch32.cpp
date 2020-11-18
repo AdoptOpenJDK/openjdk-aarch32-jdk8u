@@ -158,16 +158,19 @@ static Register as_reg(LIR_Opr op) {
 Address LIR_Assembler::as_Address(LIR_Address* addr) {
   // as_Address(LIR_Address*, Address::InsnDataType) should be used instead
   ShouldNotCallThis();
+  return Address();
 }
 
 Address LIR_Assembler::as_Address_hi(LIR_Address* addr) {
   // as_Address_hi(LIR_Address*, Address::InsnDataType) should be used instead
   ShouldNotCallThis();
+  return Address();
 }
 
 Address LIR_Assembler::as_Address_lo(LIR_Address* addr) {
   // as_Address_lo(LIR_Address*, Address::InsnDataType) should be used instead
   ShouldNotCallThis();
+  return Address();
 }
 
 Address LIR_Assembler::as_Address(LIR_Address* addr, Register tmp, Address::InsnDataType type) {
