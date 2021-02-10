@@ -40,6 +40,9 @@
 #ifdef TARGET_ARCH_x86
 # include "globals_x86.hpp"
 #endif
+#ifdef TARGET_ARCH_aarch64
+# include "globals_aarch64.hpp"
+#endif
 #ifdef TARGET_ARCH_sparc
 # include "globals_sparc.hpp"
 #endif
@@ -72,6 +75,9 @@
 #endif
 #ifdef TARGET_OS_ARCH_linux_x86
 # include "globals_linux_x86.hpp"
+#endif
+#ifdef TARGET_OS_ARCH_linux_aarch64
+# include "globals_linux_aarch64.hpp"
 #endif
 #ifdef TARGET_OS_ARCH_linux_sparc
 # include "globals_linux_sparc.hpp"
@@ -110,6 +116,9 @@
 #ifdef TARGET_ARCH_x86
 # include "c1_globals_x86.hpp"
 #endif
+#ifdef TARGET_ARCH_aarch64
+# include "c1_globals_aarch64.hpp"
+#endif
 #ifdef TARGET_ARCH_sparc
 # include "c1_globals_sparc.hpp"
 #endif
@@ -141,6 +150,9 @@
 #ifdef COMPILER2
 #ifdef TARGET_ARCH_x86
 # include "c2_globals_x86.hpp"
+#endif
+#ifdef TARGET_ARCH_aarch64
+# include "c2_globals_aarch64.hpp"
 #endif
 #ifdef TARGET_ARCH_sparc
 # include "c2_globals_sparc.hpp"
@@ -3877,7 +3889,7 @@ class CommandLineFlags {
   product(uintx, SharedMiscDataSize,    NOT_LP64(2*M) LP64_ONLY(4*M),       \
           "Size of the shared miscellaneous data area (in bytes)")          \
                                                                             \
-  product(uintx, SharedMiscCodeSize,    120*K,                              \
+  product(uintx, SharedMiscCodeSize,    AARCH64_ONLY(192*K) NOT_AARCH64(120*K), \
           "Size of the shared miscellaneous code area (in bytes)")          \
                                                                             \
   product(uintx, SharedBaseAddress, LP64_ONLY(32*G)                         \
