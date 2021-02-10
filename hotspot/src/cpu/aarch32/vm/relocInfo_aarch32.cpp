@@ -87,6 +87,7 @@ address Relocation::pd_call_destination(address orig_addr) {
   }
 
   ShouldNotReachHere();
+  return NULL;
 }
 
 void Relocation::pd_set_call_destination(address x) {
